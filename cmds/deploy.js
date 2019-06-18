@@ -1,5 +1,5 @@
 
-// const axios = require('axios')
+const axios = require('axios')
 const { copyFileSync, readFileSync, writeFileSync } = require('fs')
 const { exec } = require('child_process')
 const yaml = require('js-yaml')
@@ -35,7 +35,7 @@ async function run () {
   let file = resolve(__dirname, '../deploy/env.yml')
   let yml = readYml(file)
   console.log(yml, 'yml')
-  let url = yml.RINGCENTRAL_ENGAGE_CHATBOT_SERVER
+  let url = yml.RINGCENTRAL_CHATBOT_SERVER
   // if (!url || !/^https:\/\/.+\.amazonaws\.com.+/.test(url)) {
   //   console.log('please set correct RINGCENTRAL_CHATBOT_SERVER in dist/.env.yml')
   //   process.exit(1)
@@ -57,27 +57,27 @@ async function run () {
     return log('build fails')
   }
   let urlReal = `${arr[1]}/prod`
-  log(`RINGCENTRAL_ENGAGE_CHATBOT_SERVER in api gate way: ${urlReal}`)
+  log(`RINGCENTRAL_CHATBOT_SERVER in api gate way: ${urlReal}`)
   if (urlReal !== url) {
-    log('modify RINGCENTRAL_ENGAGE_CHATBOT_SERVER in deploy/.env.yml')
-    yml.RINGCENTRAL_ENGAGE_CHATBOT_SERVER = urlReal
+    log('modify RINGCENTRAL_CHATBOT_SERVER in deploy/.env.yml')
+    yml.RINGCENTRAL_CHATBOT_SERVER = urlReal
     let newYml = yaml.safeDump(yml)
     writeFileSync(file, newYml)
     run()
   } else {
     log('url matched, no need re-deploy')
-    // let dbinitUrl = `${urlReal}/admin/setup-database`
-    // log(`url matched, init database by "curl -X ${dbinitUrl}"`)
-    // axios.put(
-    //   `${urlReal}/admin/setup-database`,
-    //   undefined,
-    //   {
-    //     auth: {
-    //       username: yml.RINGCENTRAL_CHATBOT_ADMIN_USERNAME,
-    //       password: yml.RINGCENTRAL_CHATBOT_ADMIN_PASSWORD
-    //     }
-    //   }
-    // )
+    let dbinitUrl = `${urlReal}/admin/setup-database`
+    log(`url matched, init database by "curl -X ${dbinitUrl}"`)
+    axios.put(
+      `${urlReal}/admin/setup-database`,
+      undefined,
+      {
+        auth: {
+          username: yml.RINGCENTRAL_CHATBOT_ADMIN_USERNAME,
+          password: yml.RINGCENTRAL_CHATBOT_ADMIN_PASSWORD
+        }
+      }
+    )
   }
 }
 
