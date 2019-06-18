@@ -24,6 +24,14 @@ functions:
     handler: lambda.app
     timeout: 400 # 5 miutes
     # role: arn:aws:iam::111111:role/xxxx-prod-us-east-1-lambdaRole
+    vpc:
+      securityGroupIds:
+        - sg-xxx
+        - sg-yyy
+      subnetIds:
+        - subnet-ttt
+        - subnet-ggg
+        - subnet-vvv
     tags:
       department: dev
       Owner: Your name
