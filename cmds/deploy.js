@@ -78,6 +78,7 @@ async function run () {
         }
       }
     )
+    log(`Done!visit ${urlReal}${yml.SERVER_HOME || '/app'}`)
   }
 }
 
