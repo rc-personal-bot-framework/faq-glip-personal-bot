@@ -3,7 +3,7 @@
  * standalone server file, no cli
  */
 
-import { createApp } from 'ringcentral-engage-chatbot'
+import { createApp } from 'ringcentral-personal-chatbot'
 
 const path = './index.js'
 console.log('-> bot:', path)
