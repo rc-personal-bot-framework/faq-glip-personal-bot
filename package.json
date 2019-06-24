@@ -1,6 +1,6 @@
 {
   "name": "faq-glip-personal-bot",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Glip FAQ personal bot",
   "main": "dist/server/index.js",
   "scripts": {
