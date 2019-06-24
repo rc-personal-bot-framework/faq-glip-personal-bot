@@ -1,11 +1,12 @@
 import * as skillFaq from 'ringcentral-personal-chatbot-skill-faq'
+import * as skillTime from 'glip-personal-bot-skill-time'
 // import skillPack from 'ringcentral-personal-bot-skill-pack-simple'
 
 export const name = 'Demo Bot'
 export const description = 'Personal Chatbot with skills'
 export const homepage = 'https://github.com/rc-personal-bot-framework/ringcentral-personal-bot-template-js#readme'
 // export const skills = [skillFaq, ...skillPack]
-export const skills = [skillFaq]
+export const skills = [skillFaq, skillTime]
 /*
 export const onPostAdd = async ({
   text, // original text
