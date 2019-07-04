@@ -6,6 +6,10 @@ Personal FAQ bot created with [RingCentral personal chatbot js](https://github.c
 
 Let's start a simple chatbot server and login to it with you sandbox glip account, and you account will auto respond to keywords set by you.
 
+## Video
+
+[https://youtu.be/CEzEAQ4rSQY](https://youtu.be/CEzEAQ4rSQY)
+
 ```bash
 # get the code
 git clone git@github.com:rc-personal-bot-framework/faq-glip-personal-bot.git
