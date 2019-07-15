@@ -1,6 +1,6 @@
 # faq-glip-personal-bot
 
-Personal FAQ bot created with [RingCentral personal chatbot js](https://github.com/rc-personal-bot-framework/ringcentral-personal-chatbot-js).
+Personal FAQ bot created with [RingCentral personal chatbot js](https://github.com/ringcentral/ringcentral-personal-chatbot-js).
 
 ## Quick start
 
