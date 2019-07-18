@@ -54,3 +54,8 @@ Then visit [https://xxxx.ap.ngrok.io](https://xxxx.ap.ngrok.io) to login, after 
 npm run build
 
 ```
+
+## Links
+
+- [developer.ringcentral.com](https://developer.ringcentral.com/)
+- [game changer program](https://gamechanging.dev)
