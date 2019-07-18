@@ -1,10 +1,14 @@
 # faq-glip-personal-bot
 
-Personal FAQ bot created with [RingCentral personal chatbot js](https://github.com/rc-personal-bot-framework/ringcentral-personal-chatbot-js).
+Personal FAQ bot created with [RingCentral personal chatbot js](https://github.com/ringcentral/ringcentral-personal-chatbot-js).
 
 ## Quick start
 
 Let's start a simple chatbot server and login to it with you sandbox glip account, and you account will auto respond to keywords set by you.
+
+## Video
+
+[https://youtu.be/CEzEAQ4rSQY](https://youtu.be/CEzEAQ4rSQY)
 
 ```bash
 # get the code
@@ -50,3 +54,8 @@ Then visit [https://xxxx.ap.ngrok.io](https://xxxx.ap.ngrok.io) to login, after 
 npm run build
 
 ```
+
+## Links
+
+- [developer.ringcentral.com](https://developer.ringcentral.com/)
+- [game changer program](https://gamechanging.dev)

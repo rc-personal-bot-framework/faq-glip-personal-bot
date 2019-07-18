@@ -1,7 +1,7 @@
 {
   "name": "faq-glip-personal-bot",
-  "version": "0.1.1",
-  "description": "Template",
+  "version": "0.3.1",
+  "description": "Glip FAQ personal bot",
   "main": "dist/server/index.js",
   "scripts": {
     "ngrok": "ngrok http -region ap 4100",
@@ -9,7 +9,10 @@
     "compile": "babel src/server --out-dir dist/server",
     "build": "npm run clean && npm run compile",
     "clean": "node build/clean.js",
-    "prepublishOnly": "npm run build"
+    "build-lambda": "node cmds/build",
+    "deploy-lambda": "node cmds/deploy",
+    "deploy": "npm run build-lambda && npm run deploy-lambda",
+    "watch": "cd deploy && ../node_modules/.bin/sls logs -f app -t"
   },
   "keywords": [
     "RingCentral",
@@ -26,19 +29,30 @@
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
     "ngrok": "^3.1.0",
+    "serverless": "^1.45.1",
     "shelljs": "^0.8.3",
     "standard": "^12.0.1",
     "yarn-upgrade-all": "^0.5.0"
   },
   "dependencies": {
+    "glip-personal-bot-skill-time": "^0.3.3",
     "ringcentral-personal-bot-skill-pack-simple": "1.1.2",
-    "ringcentral-personal-chatbot": "^0.4.2",
-    "ringcentral-personal-chatbot-skill-faq": "^0.3.1"
+    "ringcentral-personal-chatbot": "^0.9.9",
+    "ringcentral-personal-chatbot-skill-faq": "^0.5.2",
+    "serverless-http": "^2.0.1"
   },
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
       "/dist/"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rc-personal-bot-framework/faq-glip-personal-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rc-personal-bot-framework/faq-glip-personal-bot/issues"
+  },
+  "homepage": "https://github.com/rc-personal-bot-framework/faq-glip-personal-bot#readme"
 }
