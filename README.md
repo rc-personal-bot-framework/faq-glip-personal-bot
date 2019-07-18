@@ -57,5 +57,5 @@ npm run build
 
 ## Links
 
-- [developer.ringcentral.com](https://developer.ringcentral.com/)
-- [game changer program](https://gamechanging.dev)
+- [developer.ringcentral.com](https://developer.ringcentral.com/), Register as RingCentral developer, create Apps with RingCentral APIs.
+- [game changer program](https://gamechanging.dev), Learn and use RingCentral APIs, get reward points/gears/electronics.
