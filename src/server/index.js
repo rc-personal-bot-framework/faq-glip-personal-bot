@@ -6,7 +6,18 @@ export const name = 'FAQ Bot'
 export const description = 'You can set FAQ keywords and answers in FAQ skill setting.'
 export const homepage = 'https://github.com/rc-personal-bot-framework/faq-glip-personal-bot#readme'
 // export const skills = [skillFaq, ...skillPack]
-export const skills = [skillFaq, skillTime]
+let skills0 = [skillFaq, skillTime]
+const { RINGCENTRAL_CHATBOT_SERVER, SERVER_HOME } = process.env
+const appHome = RINGCENTRAL_CHATBOT_SERVER + SERVER_HOME
+skills0 = skills0.map(s => {
+  return {
+    ...s,
+    homepage: appHome
+  }
+})
+
+export const skills = skills0
+
 /*
 export const onPostAdd = async ({
   text, // original text
