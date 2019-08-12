@@ -72,4 +72,3 @@ google.json
 /dist/
 *.sqlite
 *.sqlite-journal
-/package-lock.json

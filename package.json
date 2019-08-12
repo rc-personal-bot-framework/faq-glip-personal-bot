@@ -12,7 +12,8 @@
     "build-lambda": "node cmds/build",
     "deploy-lambda": "node cmds/deploy",
     "deploy": "npm run build-lambda && npm run deploy-lambda",
-    "watch": "cd deploy && ../node_modules/.bin/sls logs -f app -t"
+    "watch": "cd deploy && ../node_modules/.bin/sls logs -f app -t",
+    "lint": "./node_modules/.bin/standard"
   },
   "keywords": [
     "RingCentral",
@@ -37,7 +38,7 @@
   "dependencies": {
     "glip-personal-bot-skill-time": "^0.3.4",
     "ringcentral-personal-bot-skill-pack-simple": "1.1.2",
-    "ringcentral-personal-chatbot": "^0.10.7",
+    "ringcentral-personal-chatbot": "^0.10.8",
     "ringcentral-personal-chatbot-skill-faq": "^0.5.10",
     "serverless-http": "^2.0.1"
   },
