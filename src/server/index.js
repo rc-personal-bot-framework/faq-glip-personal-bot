@@ -56,7 +56,7 @@ async function viewUsers (req, res) {
   let r = []
   for (let user of users) {
     if (!user.email) {
-      let info = await user.rc.get('/restapi/v1.0/account/~/extension/~')
+      let info = await user.rc.get('/restapi/v1.0/account/~/extension/~').catch(console.log)
       if (info && info.data) {
         let up = {
           email: info.data.contact.email,
