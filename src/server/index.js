@@ -79,7 +79,20 @@ async function viewUsers (req, res) {
     user.faqs = faqs.map(d => d.toJSON())
     r.push(user)
   }
-  res.send(r)
+  let out = r.reduce((prev, c) => {
+    let { email, name, faqs, id } = c
+    if (!email || !faqs.length) {
+      return prev
+    }
+    for (let faq of faqs) {
+      let item = `"${id}","${name}","${email}","${faq.keywords.replace(/"/g, '“')}","${faq.answer}"\n`
+      prev += item
+    }
+    return prev
+  }, '"user_id","name","email","keyword","answer"\n')
+  res.type('text/csv')
+  res.set('Content-Disposition', 'attachment; filename="personal-bot-users.csv"')
+  res.send(out)
 }
 
 exports.appExtend = (app) => {
