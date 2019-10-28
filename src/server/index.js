@@ -12,8 +12,8 @@ const {
 } = process.env
 const appHome = RINGCENTRAL_CHATBOT_SERVER + SERVER_HOME
 
-export const name = 'FAQ Bot'
-export const description = 'You can set FAQ keywords and answers in FAQ skill setting.'
+export const name = 'Glip Auto-Responder'
+export const description = 'You can set Auto-Responder keywords and answers in FAQ skill setting.'
 export const homepage = RINGCENTRAL_CHATBOT_SERVER
   ? appHome
   : 'https://github.com/rc-personal-bot-framework/faq-glip-personal-bot#readme'
