@@ -20,6 +20,10 @@ package:
     - '*.js'
     - 'node_modules/**'
 functions:
+  maintain:
+    handler: lambda.maintain
+    events:
+      - schedule: rate(1 day)
   app:
     handler: lambda.app
     timeout: 400 # 5 miutes
