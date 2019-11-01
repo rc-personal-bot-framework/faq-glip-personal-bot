@@ -1,6 +1,6 @@
 {
   "name": "faq-glip-personal-bot",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Glip FAQ personal bot",
   "main": "dist/server/index.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "yarn-upgrade-all": "^0.5.0"
   },
   "dependencies": {
-    "glip-personal-bot-skill-time": "^0.3.4",
+    "glip-personal-bot-skill-time": "^0.3.5",
     "ringcentral-personal-bot-skill-pack-simple": "1.1.2",
     "ringcentral-personal-chatbot": "^0.11.4",
     "ringcentral-personal-chatbot-skill-faq": "^0.5.11",
