@@ -3,7 +3,7 @@ service:
 provider:
   stage: ${opt:stage, 'prod'}
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   region: us-east-1
   memorySize: 256
   environment: ${file(./env.yml)}
