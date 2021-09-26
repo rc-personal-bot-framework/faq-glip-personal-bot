@@ -2,7 +2,6 @@ import * as skillFaq from 'ringcentral-personal-chatbot-skill-faq'
 import * as skillTime from 'glip-personal-bot-skill-time'
 // import skillPack from 'ringcentral-personal-bot-skill-pack-simple'
 import basicAuth from 'express-basic-auth'
-import { User } from 'ringcentral-personal-chatbot/dist/server/models/ringcentral.js'
 import Faq from 'ringcentral-personal-chatbot-skill-faq/dist/server/model.js'
 
 const {
@@ -51,50 +50,11 @@ const auth = basicAuth({
   }
 })
 
-async function viewUsers (req, res) {
-  let users = await User.findAll()
-  let r = []
-  for (let user of users) {
-    if (!user.email) {
-      let info = await user.rc.get('/restapi/v1.0/account/~/extension/~').catch(console.log)
-      if (info && info.data) {
-        let up = {
-          email: info.data.contact.email,
-          name: info.data.name
-        }
-        await User.update(up, {
-          where: {
-            id: user.id
-          }
-        })
-        Object.assign(user, up)
-      }
-    }
-    let faqs = await Faq.findAll({
-      where: {
-        user_id: user.id
-      }
-    })
-    user = user.toJSON()
-    user.faqs = faqs.map(d => d.toJSON())
-    r.push(user)
-  }
-  let out = r.reduce((prev, c) => {
-    let { email, name, faqs, id } = c
-    if (!email || !faqs.length) {
-      return prev
-    }
-    for (let faq of faqs) {
-      let item = `"${id}","${name}","${email}","${faq.keywords.replace(/"/g, '“')}","${faq.answer}"\n`
-      prev += item
-    }
-    return prev
-  }, '"user_id","name","email","keyword","answer"\n')
-  res.type('text/csv')
-  res.set('Content-Disposition', 'attachment; filename="personal-bot-users.csv"')
-  res.send(out)
+async function viewFaqs (req, res) {
+  let list = await Faq.findAll()
+  res.send(list)
 }
 
 exports.appExtend = (app) => {
-  app.get('/admin/view-users', auth, viewUsers)
+  app.get('/admin/view-faqs', auth, viewFaqs)
 }
