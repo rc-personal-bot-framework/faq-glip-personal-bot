@@ -2,7 +2,7 @@ import * as skillFaq from 'ringcentral-personal-chatbot-skill-faq'
 import * as skillTime from 'glip-personal-bot-skill-time'
 // import skillPack from 'ringcentral-personal-bot-skill-pack-simple'
 import basicAuth from 'express-basic-auth'
-import Faq from 'ringcentral-personal-chatbot-skill-faq/dist/server/model.js'
+import { dataImport, viewFaqs } from './lib'
 
 const {
   RINGCENTRAL_CHATBOT_SERVER,
@@ -50,11 +50,7 @@ const auth = basicAuth({
   }
 })
 
-async function viewFaqs (req, res) {
-  let list = await Faq.findAll()
-  res.send(list)
-}
-
 exports.appExtend = (app) => {
   app.get('/admin/view-faqs', auth, viewFaqs)
+  app.post('/admin/import', auth, dataImport)
 }
