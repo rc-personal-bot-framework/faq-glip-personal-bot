@@ -1,6 +1,6 @@
 {
   "name": "faq-glip-personal-bot",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Glip FAQ personal bot",
   "main": "dist/server/index.js",
   "scripts": {
@@ -38,7 +38,7 @@
   "dependencies": {
     "glip-personal-bot-skill-time": "^0.3.5",
     "ringcentral-personal-bot-skill-pack-simple": "1.1.2",
-    "ringcentral-personal-chatbot": "^0.12.7",
+    "ringcentral-personal-chatbot": "^0.12.8",
     "ringcentral-personal-chatbot-skill-faq": "^0.7.8",
     "serverless-http": "^2.0.1"
   },
