@@ -1,5 +1,4 @@
 
-const axios = require('axios')
 const { copyFileSync, readFileSync, writeFileSync } = require('fs')
 const { exec } = require('child_process')
 const yaml = require('js-yaml')
@@ -66,18 +65,6 @@ async function run () {
     run()
   } else {
     log('url matched, no need re-deploy')
-    let dbinitUrl = `${urlReal}/admin/setup-database`
-    log(`url matched, init database by "curl -X ${dbinitUrl}"`)
-    axios.put(
-      `${urlReal}/admin/setup-database`,
-      undefined,
-      {
-        auth: {
-          username: yml.RINGCENTRAL_CHATBOT_ADMIN_USERNAME,
-          password: yml.RINGCENTRAL_CHATBOT_ADMIN_PASSWORD
-        }
-      }
-    )
     log(`Done!visit ${urlReal}${yml.SERVER_HOME || '/app'}`)
   }
 }
