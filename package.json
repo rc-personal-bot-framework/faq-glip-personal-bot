@@ -41,7 +41,7 @@
     "glip-personal-bot-skill-time": "^1.0.0",
     "ringcentral-personal-bot-skill-pack-simple": "1.1.2",
     "ringcentral-personal-chatbot": "^1.0.3",
-    "ringcentral-personal-chatbot-skill-faq": "^1.0.1",
+    "ringcentral-personal-chatbot-skill-faq": "^1.0.2",
     "serverless-http": "^2.0.1"
   },
   "standard": {
