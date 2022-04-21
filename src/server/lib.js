@@ -1,5 +1,5 @@
 import Faq from 'ringcentral-personal-chatbot-skill-faq/dist/server/model.js'
-import { Service as User } from 'ringcentral-personal-chatbot/dist/server/models/Service'
+import { User } from 'ringcentral-personal-chatbot/dist/server/models/ringcentral'
 
 const tree = {
   faq: Faq,

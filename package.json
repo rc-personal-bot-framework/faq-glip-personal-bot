@@ -1,6 +1,6 @@
 {
   "name": "faq-glip-personal-bot",
-  "version": "0.5.2",
+  "version": "1.0.0",
   "description": "Glip FAQ personal bot",
   "main": "dist/server/index.js",
   "scripts": {
@@ -10,10 +10,12 @@
     "build": "npm run clean && npm run compile",
     "clean": "node build/clean.js",
     "build-lambda": "node cmds/build",
+    "dynamo": "node -r @babel/register build/dynamo-local.js",
     "deploy-lambda": "node cmds/deploy",
     "deploy": "npm run build-lambda && npm run deploy-lambda",
     "watch": "cd deploy && ../node_modules/.bin/sls logs -f app -t",
-    "lint": "./node_modules/.bin/standard"
+    "lint": "./node_modules/.bin/standard",
+    "fix": "./node_modules/.bin/standard --fix"
   },
   "keywords": [
     "RingCentral",
@@ -23,23 +25,23 @@
   "author": "Drake Zhao <drake.zhao@ringcentral.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "@babel/register": "^7.0.0",
+    "@babel/cli": "7.17.6",
+    "@babel/core": "7.17.9",
+    "@babel/preset-env": "7.16.11",
+    "@babel/register": "7.17.7",
     "babel-eslint": "^10.0.1",
-    "cross-env": "^5.2.0",
-    "ngrok": "^3.1.0",
-    "serverless": "^1.45.1",
-    "shelljs": "^0.8.3",
-    "standard": "^12.0.1",
-    "yarn-upgrade-all": "^0.5.0"
+    "dynamodb-local": "^0.0.31",
+    "ngrok": "4.3.1",
+    "serverless": "3.12.0",
+    "serverless-deployment-bucket": "1.5.2",
+    "shelljs": "^0.8.4",
+    "standard": "16.0.4"
   },
   "dependencies": {
-    "glip-personal-bot-skill-time": "^0.3.5",
+    "glip-personal-bot-skill-time": "^1.0.0",
     "ringcentral-personal-bot-skill-pack-simple": "1.1.2",
-    "ringcentral-personal-chatbot": "^0.12.8",
-    "ringcentral-personal-chatbot-skill-faq": "^0.7.8",
+    "ringcentral-personal-chatbot": "^1.0.3",
+    "ringcentral-personal-chatbot-skill-faq": "^1.0.1",
     "serverless-http": "^2.0.1"
   },
   "standard": {
