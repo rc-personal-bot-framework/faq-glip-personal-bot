@@ -32,7 +32,7 @@
     "babel-eslint": "^10.0.1",
     "dynamodb-local": "^0.0.31",
     "ngrok": "4.3.1",
-    "serverless": "3.12.0",
+    "serverless": "^2.72.3",
     "serverless-deployment-bucket": "1.5.2",
     "shelljs": "^0.8.4",
     "standard": "16.0.4"
